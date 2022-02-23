@@ -1,0 +1,15 @@
+version: '3'
+services:
+  connector-yoroi:
+    image: luigidituccio/opencti-connector-yoroi:latest
+    environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=${CONNECTOR_YOROI_TOKEN}
+      - CONNECTOR_ID=${CONNECTOR_YOROI_ID}
+      - CONNECTOR_TYPE=EXTERNAL_IMPORT
+      - CONNECTOR_NAME=ChangeMe
+      - CONNECTOR_SCOPE=report # MIME type or Stix Object
+      - CONNECTOR_CONFIDENCE_LEVEL=100 # From 0 (Unknown) to 100 (Fully trusted)
+      - CONNECTOR_LOG_LEVEL=info
+      - YOROI_INTERVAL_SEC=120
+    restart: always
